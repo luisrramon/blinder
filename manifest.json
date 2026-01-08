@@ -1,0 +1,17 @@
+{
+    "manifest_version": 3,
+    "name": "Blinder",
+    "version": "1.0",
+    "description": "A browser extension that blinds unwanted content based on keywords.",
+    "action": {
+        "default_popup": ""
+    },
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "js": ["scripts/content.js"],
+            "run_at": "document_end"
+        }
+    ],
+    "permissions": ["storage"]
+}
