@@ -30,10 +30,21 @@ const applyBlinder = () => {
   });
 };
 
+const observer = new MutationObserver((mutations) => {
+  if (mutations.length > 0) {
+    applyBlinder();
+  }
+});
+
+observer.observe(document.body, {
+  childList: true,
+  subtree: true
+});
+
+applyBlinder();
+
 chrome.storage.onChanged.addListener((changes, areaName) => {
   if (areaName === 'local' && changes.bannedWords) {
     applyBlinder();
   }
 });
-
-applyBlinder();
