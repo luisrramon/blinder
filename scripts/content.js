@@ -17,7 +17,7 @@ const applyBlinder = () => {
         
       if (matchFound) {
         // Blur the closest parent container to hide entire content, not just the text node
-        const container = el.closest('div, article, section, div');
+        const container = el.closest('div, article, section');
           
         if (container) {
           container.style.filter = "blur(15px)";
@@ -29,5 +29,11 @@ const applyBlinder = () => {
     });
   });
 };
+
+chrome.storage.onChanged.addListener((changes, areaName) => {
+  if (areaName === 'local' && changes.bannedWords) {
+    applyBlinder();
+  }
+});
 
 applyBlinder();
