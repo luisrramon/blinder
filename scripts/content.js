@@ -17,13 +17,15 @@ const applyBlinder = () => {
         
       if (matchFound) {
         // Blur the closest parent container to hide entire content, not just the text node
-        const container = el.closest('div, article, section');
-          
-        if (container) {
+        const container = el.closest('div, article, section, li');
+        
+        // Check if we already blinded this container to prevent loops
+        if (container && !container.classList.contains('blinder-applied')) {
           container.style.filter = "blur(15px)";
           container.style.opacity = "0.5";
           container.style.transition = "all 0.5s ease";
           container.style.pointerEvents = "none"; // Disable interaction with blurred content
+          container.classList.add('blinder-active'); // Mark it as done
         }
       }
     });

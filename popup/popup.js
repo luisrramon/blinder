@@ -1,5 +1,6 @@
 const input = document.getElementById('wordInput');
 const addBtn = document.getElementById('addBtn');
+const clearBtn = document.getElementById('clearBtn');
 const wordList = document.getElementById('wordList');
 
 // Load words from storage and display them
@@ -46,6 +47,14 @@ wordList.addEventListener('click', (e) => {
             chrome.storage.local.set({ bannedWords: words }, () => {
                 updateUI();
             });
+        });
+    }
+});
+
+clearBtn.addEventListener('click', () => {
+    if (confirm("Are you sre you want to clear all words?")) {
+        chrome.storage.local.set({ bannedWords: [] }, () => {
+            updateUI();
         });
     }
 });
