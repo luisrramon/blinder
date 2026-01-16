@@ -4,7 +4,7 @@
     "version": "1.0",
     "description": "A browser extension that blinds unwanted content based on keywords.",
     "action": {
-        "default_popup": ""
+        "default_popup": "popup/popup.html"
     },
     "content_scripts": [
         {
