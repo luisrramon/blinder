@@ -1,0 +1,13 @@
+body {
+  width: 250px;
+  padding: 15px;
+  font-family: sans-serif;
+}
+h3 { margin-top: 0; color: #333; }
+.input-group { display: flex; gap: 5px; margin-bottom: 10px; }
+input { flex: 1; padding: 5px; border: 1px solid #ccc; border-radius: 4px; }
+button { cursor: pointer; background: #007bff; color: white; border: none; border-radius: 4px; padding: 5px 10px; }
+button:hover { background: #0056b3; }
+ul { list-style: none; padding: 0; }
+li { display: flex; justify-content: space-between; padding: 8px; border-bottom: 1px solid #eee; font-size: 14px; }
+.delete-btn { color: red; cursor: pointer; font-weight: bold; }
